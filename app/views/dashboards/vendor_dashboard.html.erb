@@ -1,0 +1,9 @@
+<h1>vendor dashboard</h1>
+ <% if vendor_signed_in? %> 
+    Signed in as 
+    <%= current_vendor.email %>. Not you?
+     <%= link_to "Vendor Sign out", destroy_vendor_session_path ,method: :delete%>
+      <% else %> 
+      <%= link_to "Vendor Sign up", new_vendor_registration_path %> or 
+      <%= link_to "Vendor Sign in", new_vendor_session_path %> 
+<% end %>

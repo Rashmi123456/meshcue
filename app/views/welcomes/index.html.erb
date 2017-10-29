@@ -1,0 +1,28 @@
+<div class="jumbotron text-center" style="height: 500px; width:1100px; background-color:coral;">
+ <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#services">SERVICES</a></li>
+        <% if manufacture_signed_in? %>
+        <li><%= link_to "LOGOUT", destroy_manufacture_session_path ,method: :delete%></li>
+        <% else %>
+         <li><%= link_to "LOGIN", new_manufacture_session_path %></li>
+        <% end %>
+        <li><%= link_to "VENDOR", vendor_dashboard_dashboards_path %></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+<h1>Welcome</h1>
+ <% if manufacture_signed_in? %> 
+    Signed in as 
+    <%= current_manufacture.email %>. Not you?
+     <%= link_to "Manufacture Sign out", destroy_manufacture_session_path ,method: :delete%>
+      <% else %> 
+      <%#= link_to "Manufacture Sign up", new_manufacture_registration_path %> <!-- or  -->
+      <%= link_to  '<button type="button">Sign in</button>'.html_safe,new_manufacture_session_path %>
+    <% end %>
+    </div>
+    <style type="text/css">
+    </style>
+    
+   

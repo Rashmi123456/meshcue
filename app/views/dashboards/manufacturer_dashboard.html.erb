@@ -1,0 +1,9 @@
+<h1>Welcome Manufacturer</h1>
+ <% if manufacture_signed_in? %> 
+    Signed in as 
+    <%= current_manufacture.email %>. Not you?
+     <%= link_to "Manufacture Sign out", destroy_manufacture_session_path ,method: :delete%>
+      <% else %> 
+      <%= link_to "Manufacture Sign up", new_manufacture_registration_path %> or 
+      <%= link_to "Manufacture Sign in", new_manufacture_session_path %>
+    <% end %>
